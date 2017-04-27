@@ -102,17 +102,17 @@
 
 
 
-<meta name="description" content="JS的常用重要总结">
+<meta name="description" content="JS的常用重要总结 遍历对象123456789101112function TraversalObject(obj) &amp;#123; for (let a in obj) &amp;#123;   if (typeof (obj[a]) === &amp;apos;object&amp;apos;) &amp;#123;     TraversalObject(obj[a]);   &amp;#125; else &amp;#123;     c">
 <meta name="keywords" content="JS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="You don't know JS">
 <meta property="og:url" content="https://taylorpzreal.github.io/2017/04/27/You-don-t-know-JS/index.html">
 <meta property="og:site_name" content="TaylorPzreal">
-<meta property="og:description" content="JS的常用重要总结">
-<meta property="og:updated_time" content="2017-04-26T23:32:07.555Z">
+<meta property="og:description" content="JS的常用重要总结 遍历对象123456789101112function TraversalObject(obj) &amp;#123; for (let a in obj) &amp;#123;   if (typeof (obj[a]) === &amp;apos;object&amp;apos;) &amp;#123;     TraversalObject(obj[a]);   &amp;#125; else &amp;#123;     c">
+<meta property="og:updated_time" content="2017-04-27T07:42:41.635Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="You don't know JS">
-<meta name="twitter:description" content="JS的常用重要总结">
+<meta name="twitter:description" content="JS的常用重要总结 遍历对象123456789101112function TraversalObject(obj) &amp;#123; for (let a in obj) &amp;#123;   if (typeof (obj[a]) === &amp;apos;object&amp;apos;) &amp;#123;     TraversalObject(obj[a]);   &amp;#125; else &amp;#123;     c">
 
 
 
@@ -358,7 +358,11 @@
       
 
       
-        <h2 id="JS的常用重要总结"><a href="#JS的常用重要总结" class="headerlink" title="JS的常用重要总结"></a>JS的常用重要总结</h2>
+        <h2 id="JS的常用重要总结"><a href="#JS的常用重要总结" class="headerlink" title="JS的常用重要总结"></a>JS的常用重要总结</h2><ol>
+<li>遍历对象<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function TraversalObject(obj) &#123;</div><div class="line"></div><div class="line"> for (let a in obj) &#123;</div><div class="line">   if (typeof (obj[a]) === &apos;object&apos;) &#123;</div><div class="line">     TraversalObject(obj[a]);</div><div class="line">   &#125; else &#123;</div><div class="line">     console.info(a, obj[a]);</div><div class="line">   &#125;</div><div class="line"> &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">TraversalObject(JSON.parse(data.data));</div></pre></td></tr></table></figure>
+</li>
+</ol>
+
       
     </div>
 
