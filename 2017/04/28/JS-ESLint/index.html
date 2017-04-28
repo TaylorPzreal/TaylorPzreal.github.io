@@ -1,0 +1,777 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+    
+    <link href="https://fonts.googleapis.com/css?family=Abel:300,300italic,400,400italic,700,700italic|Bad+Script:300,300italic,400,400italic,700,700italic|Caveat:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="ESLint JavaScript," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="1. Objects1.1  Do not call Object.prototype methods directly, such as hasOwnProperty, propertyIsEnumerable, and isPrototypeOf. Why? These methods may be shadowed by properties on the object in questio">
+<meta name="keywords" content="ESLint JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS-ESLint">
+<meta property="og:url" content="https://taylorpzreal.github.io/2017/04/28/JS-ESLint/index.html">
+<meta property="og:site_name" content="TaylorPzreal">
+<meta property="og:description" content="1. Objects1.1  Do not call Object.prototype methods directly, such as hasOwnProperty, propertyIsEnumerable, and isPrototypeOf. Why? These methods may be shadowed by properties on the object in questio">
+<meta property="og:updated_time" content="2017-04-28T09:25:26.936Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JS-ESLint">
+<meta name="twitter:description" content="1. Objects1.1  Do not call Object.prototype methods directly, such as hasOwnProperty, propertyIsEnumerable, and isPrototypeOf. Why? These methods may be shadowed by properties on the object in questio">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://taylorpzreal.github.io/2017/04/28/JS-ESLint/"/>
+
+
+
+
+
+  <title>JS-ESLint | TaylorPzreal</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">TaylorPzreal</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">优秀是一种习惯, 生活是一种态度</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://taylorpzreal.github.io/2017/04/28/JS-ESLint/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="TaylorPzreal">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/logo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TaylorPzreal">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                JS-ESLint
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-28T15:22:00+08:00">
+                2017-04-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="1-Objects"><a href="#1-Objects" class="headerlink" title="1. Objects"></a>1. Objects</h2><h3 id="1-1-Do-not-call-Object-prototype-methods-directly-such-as-hasOwnProperty-propertyIsEnumerable-and-isPrototypeOf"><a href="#1-1-Do-not-call-Object-prototype-methods-directly-such-as-hasOwnProperty-propertyIsEnumerable-and-isPrototypeOf" class="headerlink" title="1.1  Do not call Object.prototype methods directly, such as hasOwnProperty, propertyIsEnumerable, and isPrototypeOf."></a>1.1  Do not call Object.prototype methods directly, such as hasOwnProperty, propertyIsEnumerable, and isPrototypeOf.</h3><blockquote>
+<p>Why? These methods may be shadowed by properties on the object in question - consider { hasOwnProperty: false } - or, the object may be a null object (Object.create(null)).</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">// bad</div><div class="line">console.log(object.hasOwnProperty(key));</div><div class="line"></div><div class="line">// good</div><div class="line">console.log(Object.prototype.hasOwnProperty.call(object, key));</div><div class="line"></div><div class="line">// best</div><div class="line">const has = Object.prototype.hasOwnProperty; // cache the lookup once, in module scope.</div><div class="line">/* or */</div><div class="line">import has from &apos;has&apos;;</div><div class="line">// ...</div><div class="line">console.log(has.call(object, key));</div></pre></td></tr></table></figure>
+<h3 id="1-2-Prefer-the-object-spread-operator-over-Object-assign-to-shallow-copy-objects-Use-the-object-rest-operator-to-get-a-new-object-with-certain-properties-omitted"><a href="#1-2-Prefer-the-object-spread-operator-over-Object-assign-to-shallow-copy-objects-Use-the-object-rest-operator-to-get-a-new-object-with-certain-properties-omitted" class="headerlink" title="1.2 Prefer the object spread operator over Object.assign to shallow-copy objects. Use the object rest operator to get a new object with certain properties omitted."></a>1.2 Prefer the object spread operator over Object.assign to shallow-copy objects. Use the object rest operator to get a new object with certain properties omitted.</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">// very bad</div><div class="line">const original = &#123; a: 1, b: 2 &#125;;</div><div class="line">const copy = Object.assign(original, &#123; c: 3 &#125;); // this mutates `original` ಠ_ಠ</div><div class="line">delete copy.a; // so does this</div><div class="line"></div><div class="line">// bad</div><div class="line">const original = &#123; a: 1, b: 2 &#125;;</div><div class="line">const copy = Object.assign(&#123;&#125;, original, &#123; c: 3 &#125;); // copy =&gt; &#123; a: 1, b: 2, c: 3 &#125;</div><div class="line"></div><div class="line">// good</div><div class="line">const original = &#123; a: 1, b: 2 &#125;;</div><div class="line">const copy = &#123; ...original, c: 3 &#125;; // copy =&gt; &#123; a: 1, b: 2, c: 3 &#125;</div><div class="line"></div><div class="line">const &#123; a, ...noA &#125; = copy; // noA =&gt; &#123; b: 2, c: 3 &#125;</div></pre></td></tr></table></figure>
+<h2 id="2-Arrays"><a href="#2-Arrays" class="headerlink" title="2. Arrays"></a>2. Arrays</h2><h3 id="2-1-Use-Array-push-instead-of-direct-assignment-to-add-items-to-an-array"><a href="#2-1-Use-Array-push-instead-of-direct-assignment-to-add-items-to-an-array" class="headerlink" title="2.1 Use Array#push instead of direct assignment to add items to an array."></a>2.1 Use Array#push instead of direct assignment to add items to an array.</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">const someStack = [];</div><div class="line"></div><div class="line">// bad</div><div class="line">someStack[someStack.length] = &apos;abracadabra&apos;;</div><div class="line"></div><div class="line">// good</div><div class="line">someStack.push(&apos;abracadabra&apos;);</div></pre></td></tr></table></figure>
+<h3 id="2-2-Use-array-spreads-…-to-copy-arrays"><a href="#2-2-Use-array-spreads-…-to-copy-arrays" class="headerlink" title="2.2 Use array spreads … to copy arrays."></a>2.2 Use array spreads … to copy arrays.</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">// bad</div><div class="line">const len = items.length;</div><div class="line">const itemsCopy = [];</div><div class="line">let i;</div><div class="line"></div><div class="line">for (i = 0; i &lt; len; i += 1) &#123;</div><div class="line">  itemsCopy[i] = items[i];</div><div class="line">&#125;</div><div class="line"></div><div class="line">// good</div><div class="line">const itemsCopy = [...items];</div></pre></td></tr></table></figure>
+<h3 id="2-3-To-convert-an-array-like-object-to-an-array-use-Array-from"><a href="#2-3-To-convert-an-array-like-object-to-an-array-use-Array-from" class="headerlink" title="2.3 To convert an array-like object to an array, use Array.from."></a>2.3 To convert an array-like object to an array, use Array.from.</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">const foo = document.querySelectorAll(&apos;.foo&apos;);</div><div class="line">const nodes = Array.from(foo);</div></pre></td></tr></table></figure>
+<h3 id="2-4-Use-return-statements-in-array-method-callbacks-It’s-ok-to-omit-the-return-if-the-function-body-consists-of-a-single-statement-following-8-2-eslint-array-callback-return"><a href="#2-4-Use-return-statements-in-array-method-callbacks-It’s-ok-to-omit-the-return-if-the-function-body-consists-of-a-single-statement-following-8-2-eslint-array-callback-return" class="headerlink" title="2.4 Use return statements in array method callbacks. It’s ok to omit the return if the function body consists of a single statement following 8.2. eslint: array-callback-return"></a>2.4 Use return statements in array method callbacks. It’s ok to omit the return if the function body consists of a single statement following 8.2. eslint: array-callback-return</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line">// good</div><div class="line">[1, 2, 3].map((x) =&gt; &#123;</div><div class="line">  const y = x + 1;</div><div class="line">  return x * y;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">// good</div><div class="line">[1, 2, 3].map(x =&gt; x + 1);</div><div class="line"></div><div class="line">// bad</div><div class="line">const flat = &#123;&#125;;</div><div class="line">[[0, 1], [2, 3], [4, 5]].reduce((memo, item, index) =&gt; &#123;</div><div class="line">  const flatten = memo.concat(item);</div><div class="line">  flat[index] = flatten;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">// good</div><div class="line">const flat = &#123;&#125;;</div><div class="line">[[0, 1], [2, 3], [4, 5]].reduce((memo, item, index) =&gt; &#123;</div><div class="line">  const flatten = memo.concat(item);</div><div class="line">  flat[index] = flatten;</div><div class="line">  return flatten;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">// bad</div><div class="line">inbox.filter((msg) =&gt; &#123;</div><div class="line">  const &#123; subject, author &#125; = msg;</div><div class="line">  if (subject === &apos;Mockingbird&apos;) &#123;</div><div class="line">    return author === &apos;Harper Lee&apos;;</div><div class="line">  &#125; else &#123;</div><div class="line">    return false;</div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">// good</div><div class="line">inbox.filter((msg) =&gt; &#123;</div><div class="line">  const &#123; subject, author &#125; = msg;</div><div class="line">  if (subject === &apos;Mockingbird&apos;) &#123;</div><div class="line">    return author === &apos;Harper Lee&apos;;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  return false;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="2-5-Use-array-destructuring"><a href="#2-5-Use-array-destructuring" class="headerlink" title="2.5 Use array destructuring"></a>2.5 Use array destructuring</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">const arr = [1, 2, 3, 4];</div><div class="line"></div><div class="line">// bad</div><div class="line">const first = arr[0];</div><div class="line">const second = arr[1];</div><div class="line"></div><div class="line">// good</div><div class="line">const [first, second] = arr;</div></pre></td></tr></table></figure>
+<h3 id="2-6-Use-object-destructuring-for-multiple-return-values-not-array-destructuring"><a href="#2-6-Use-object-destructuring-for-multiple-return-values-not-array-destructuring" class="headerlink" title="2.6 Use object destructuring for multiple return values, not array destructuring"></a>2.6 Use object destructuring for multiple return values, not array destructuring</h3><blockquote>
+<p>Why? You can add new properties over time or change the order of things without breaking call sites.</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">// bad</div><div class="line">function processInput(input) &#123;</div><div class="line">  // then a miracle occurs</div><div class="line">  return [left, right, top, bottom];</div><div class="line">&#125;</div><div class="line"></div><div class="line">// the caller needs to think about the order of return data</div><div class="line">const [left, __, top] = processInput(input);</div><div class="line"></div><div class="line">// good</div><div class="line">function processInput(input) &#123;</div><div class="line">  // then a miracle occurs</div><div class="line">  return &#123; left, right, top, bottom &#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// the caller selects only the data they need</div><div class="line">const &#123; left, top &#125; = processInput(input);</div></pre></td></tr></table></figure>
+<h2 id="3-String"><a href="#3-String" class="headerlink" title="3. String"></a>3. String</h2><h3 id="3-1-Strings-that-cause-the-line-to-go-over-100-characters-should-not-be-written-across-multiple-lines-using-string-concatenation"><a href="#3-1-Strings-that-cause-the-line-to-go-over-100-characters-should-not-be-written-across-multiple-lines-using-string-concatenation" class="headerlink" title="3.1 Strings that cause the line to go over 100 characters should not be written across multiple lines using string concatenation."></a>3.1 Strings that cause the line to go over 100 characters should not be written across multiple lines using string concatenation.</h3><blockquote>
+<p>Why? Broken strings are painful to work with and make code less searchable.</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">// bad</div><div class="line">const errorMessage = &apos;This is a super long error that was thrown because \</div><div class="line">of Batman. When you stop to think about how Batman had anything to do \</div><div class="line">with this, you would get nowhere \</div><div class="line">fast.&apos;;</div><div class="line"></div><div class="line">// bad</div><div class="line">const errorMessage = &apos;This is a super long error that was thrown because &apos; +</div><div class="line">  &apos;of Batman. When you stop to think about how Batman had anything to do &apos; +</div><div class="line">  &apos;with this, you would get nowhere fast.&apos;;</div><div class="line"></div><div class="line">// good</div><div class="line">const errorMessage = &apos;This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.&apos;;</div></pre></td></tr></table></figure>
+<h2 id="4-Functions"><a href="#4-Functions" class="headerlink" title="4. Functions"></a>4. Functions</h2><h3 id="4-1-Use-named-function-expressions-instead-of-function-declarations"><a href="#4-1-Use-named-function-expressions-instead-of-function-declarations" class="headerlink" title="4.1 Use named function expressions instead of function declarations"></a>4.1 Use named function expressions instead of function declarations</h3><blockquote>
+<p>Why? Function declarations are hoisted, which means that it’s easy - too easy - to reference the function before it is defined in the file. This harms readability and maintainability. If you find that a function’s definition is large or complex enough that it is interfering with understanding the rest of the file, then perhaps it’s time to extract it to its own module! Don’t forget to name the expression - anonymous functions can make it harder to locate the problem in an Error’s call stack. (Discussion)</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">// bad</div><div class="line">function foo() &#123;</div><div class="line">  // ...</div><div class="line">&#125;</div><div class="line"></div><div class="line">// bad</div><div class="line">const foo = function () &#123;</div><div class="line">  // ...</div><div class="line">&#125;;</div><div class="line"></div><div class="line">// good</div><div class="line">const foo = function bar() &#123;</div><div class="line">  // ...</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h3 id="4-2-Note-ECMA-262-defines-a-block-as-a-list-of-statements-A-function-declaration-is-not-a-statement-Read-ECMA-262’s-note-on-this-issue"><a href="#4-2-Note-ECMA-262-defines-a-block-as-a-list-of-statements-A-function-declaration-is-not-a-statement-Read-ECMA-262’s-note-on-this-issue" class="headerlink" title="4.2 Note: ECMA-262 defines a block as a list of statements. A function declaration is not a statement. Read ECMA-262’s note on this issue."></a>4.2 Note: ECMA-262 defines a block as a list of statements. A function declaration is not a statement. Read ECMA-262’s note on this issue.</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">// bad</div><div class="line">if (currentUser) &#123;</div><div class="line">  function test() &#123;</div><div class="line">    console.log(&apos;Nope.&apos;);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// good</div><div class="line">let test;</div><div class="line">if (currentUser) &#123;</div><div class="line">  test = () =&gt; &#123;</div><div class="line">    console.log(&apos;Yup.&apos;);</div><div class="line">  &#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="4-3-Never-name-a-parameter-arguments-This-will-take-precedence-over-the-arguments-object-that-is-given-to-every-function-scope"><a href="#4-3-Never-name-a-parameter-arguments-This-will-take-precedence-over-the-arguments-object-that-is-given-to-every-function-scope" class="headerlink" title="4.3 Never name a parameter arguments. This will take precedence over the arguments object that is given to every function scope."></a>4.3 Never name a parameter arguments. This will take precedence over the arguments object that is given to every function scope.</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">// bad</div><div class="line">function foo(name, options, arguments) &#123;</div><div class="line">  // ...</div><div class="line">&#125;</div><div class="line"></div><div class="line">// good</div><div class="line">function foo(name, options, args) &#123;</div><div class="line">  // ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="4-4-Use-default-parameter-syntax-rather-than-mutating-function-arguments"><a href="#4-4-Use-default-parameter-syntax-rather-than-mutating-function-arguments" class="headerlink" title="4.4  Use default parameter syntax rather than mutating function arguments."></a>4.4  Use default parameter syntax rather than mutating function arguments.</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">// really bad</div><div class="line">function handleThings(opts) &#123;</div><div class="line">  // No! We shouldn&apos;t mutate function arguments.</div><div class="line">  // Double bad: if opts is falsy it&apos;ll be set to an object which may</div><div class="line">  // be what you want but it can introduce subtle bugs.</div><div class="line">  opts = opts || &#123;&#125;;</div><div class="line">  // ...</div><div class="line">&#125;</div><div class="line"></div><div class="line">// still bad</div><div class="line">function handleThings(opts) &#123;</div><div class="line">  if (opts === void 0) &#123;</div><div class="line">    opts = &#123;&#125;;</div><div class="line">  &#125;</div><div class="line">  // ...</div><div class="line">&#125;</div><div class="line"></div><div class="line">// good</div><div class="line">function handleThings(opts = &#123;&#125;) &#123;</div><div class="line">  // ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="4-5-Avoid-side-effects-with-default-parameters"><a href="#4-5-Avoid-side-effects-with-default-parameters" class="headerlink" title="4.5 Avoid side effects with default parameters."></a>4.5 Avoid side effects with default parameters.</h3><blockquote>
+<p>Why? They are confusing to reason about.</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var b = 1;</div><div class="line">// bad</div><div class="line">function count(a = b++) &#123;</div><div class="line">  console.log(a);</div><div class="line">&#125;</div><div class="line">count();  // 1</div><div class="line">count();  // 2</div><div class="line">count(3); // 3</div><div class="line">count();  // 3</div></pre></td></tr></table></figure>
+<h3 id="4-6-Always-put-default-parameters-last"><a href="#4-6-Always-put-default-parameters-last" class="headerlink" title="4.6 Always put default parameters last."></a>4.6 Always put default parameters last.</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">// bad</div><div class="line">function handleThings(opts = &#123;&#125;, name) &#123;</div><div class="line">  // ...</div><div class="line">&#125;</div><div class="line"></div><div class="line">// good</div><div class="line">function handleThings(name, opts = &#123;&#125;) &#123;</div><div class="line">  // ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="4-7-Never-mutate-parameters-eslint-no-param-reassign"><a href="#4-7-Never-mutate-parameters-eslint-no-param-reassign" class="headerlink" title="4.7 Never mutate parameters. eslint: no-param-reassign"></a>4.7 Never mutate parameters. eslint: no-param-reassign</h3><blockquote>
+<p>Why? Manipulating objects passed in as parameters can cause unwanted variable side effects in the original caller.</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">// bad</div><div class="line">function f1(obj) &#123;</div><div class="line">  obj.key = 1;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// good</div><div class="line">function f2(obj) &#123;</div><div class="line">  const key = Object.prototype.hasOwnProperty.call(obj, &apos;key&apos;) ? obj.key : 1;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// bad</div><div class="line">function f1(a) &#123;</div><div class="line">  a = 1;</div><div class="line">  // ...</div><div class="line">&#125;</div><div class="line"></div><div class="line">function f2(a) &#123;</div><div class="line">  if (!a) &#123; a = 1; &#125;</div><div class="line">  // ...</div><div class="line">&#125;</div><div class="line"></div><div class="line">// good</div><div class="line">function f3(a) &#123;</div><div class="line">  const b = a || 1;</div><div class="line">  // ...</div><div class="line">&#125;</div><div class="line"></div><div class="line">function f4(a = 1) &#123;</div><div class="line">  // ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="4-8-Prefer-the-use-of-the-spread-operator-…-to-call-variadic-functions-eslint-prefer-spread"><a href="#4-8-Prefer-the-use-of-the-spread-operator-…-to-call-variadic-functions-eslint-prefer-spread" class="headerlink" title="4.8 Prefer the use of the spread operator … to call variadic functions. eslint: prefer-spread"></a>4.8 Prefer the use of the spread operator … to call variadic functions. eslint: prefer-spread</h3><blockquote>
+<p>Why? It’s cleaner, you don’t need to supply a context, and you can not easily compose new with apply.</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">// bad</div><div class="line">const x = [1, 2, 3, 4, 5];</div><div class="line">console.log.apply(console, x);</div><div class="line"></div><div class="line">// good</div><div class="line">const x = [1, 2, 3, 4, 5];</div><div class="line">console.log(...x);</div><div class="line"></div><div class="line">// bad</div><div class="line">new (Function.prototype.bind.apply(Date, [null, 2016, 8, 5]));</div><div class="line"></div><div class="line">// good</div><div class="line">new Date(...[2016, 8, 5]);</div></pre></td></tr></table></figure>
+<h3 id="4-9-Functions-with-multiline-signatures-or-invocations-should-be-indented-just-like-every-other-multiline-list-in-this-guide-with-each-item-on-a-line-by-itself-with-a-trailing-comma-on-the-last-item"><a href="#4-9-Functions-with-multiline-signatures-or-invocations-should-be-indented-just-like-every-other-multiline-list-in-this-guide-with-each-item-on-a-line-by-itself-with-a-trailing-comma-on-the-last-item" class="headerlink" title="4.9 Functions with multiline signatures, or invocations, should be indented just like every other multiline list in this guide: with each item on a line by itself, with a trailing comma on the last item."></a>4.9 Functions with multiline signatures, or invocations, should be indented just like every other multiline list in this guide: with each item on a line by itself, with a trailing comma on the last item.</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">// bad</div><div class="line">function foo(bar,</div><div class="line">             baz,</div><div class="line">             quux) &#123;</div><div class="line">  // ...</div><div class="line">&#125;</div><div class="line"></div><div class="line">// good</div><div class="line">function foo(</div><div class="line">  bar,</div><div class="line">  baz,</div><div class="line">  quux,</div><div class="line">) &#123;</div><div class="line">  // ...</div><div class="line">&#125;</div><div class="line"></div><div class="line">// bad</div><div class="line">console.log(foo,</div><div class="line">  bar,</div><div class="line">  baz);</div><div class="line"></div><div class="line">// good</div><div class="line">console.log(</div><div class="line">  foo,</div><div class="line">  bar,</div><div class="line">  baz,</div><div class="line">);</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ESLint-JavaScript/" rel="tag"># ESLint JavaScript</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/28/ubuntu-environment/" rel="prev" title="ubuntu-environment">
+                ubuntu-environment <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="uyan_frame"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/logo.jpg"
+               alt="TaylorPzreal" />
+          <p class="site-author-name" itemprop="name">TaylorPzreal</p>
+           
+              <p class="site-description motion-element" itemprop="description">热爱生活, 热爱思考.</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Objects"><span class="nav-number">1.</span> <span class="nav-text">1. Objects</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-Do-not-call-Object-prototype-methods-directly-such-as-hasOwnProperty-propertyIsEnumerable-and-isPrototypeOf"><span class="nav-number">1.1.</span> <span class="nav-text">1.1  Do not call Object.prototype methods directly, such as hasOwnProperty, propertyIsEnumerable, and isPrototypeOf.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-Prefer-the-object-spread-operator-over-Object-assign-to-shallow-copy-objects-Use-the-object-rest-operator-to-get-a-new-object-with-certain-properties-omitted"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 Prefer the object spread operator over Object.assign to shallow-copy objects. Use the object rest operator to get a new object with certain properties omitted.</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Arrays"><span class="nav-number">2.</span> <span class="nav-text">2. Arrays</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-Use-Array-push-instead-of-direct-assignment-to-add-items-to-an-array"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 Use Array#push instead of direct assignment to add items to an array.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-Use-array-spreads-…-to-copy-arrays"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 Use array spreads … to copy arrays.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-To-convert-an-array-like-object-to-an-array-use-Array-from"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 To convert an array-like object to an array, use Array.from.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-Use-return-statements-in-array-method-callbacks-It’s-ok-to-omit-the-return-if-the-function-body-consists-of-a-single-statement-following-8-2-eslint-array-callback-return"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 Use return statements in array method callbacks. It’s ok to omit the return if the function body consists of a single statement following 8.2. eslint: array-callback-return</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-Use-array-destructuring"><span class="nav-number">2.5.</span> <span class="nav-text">2.5 Use array destructuring</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-6-Use-object-destructuring-for-multiple-return-values-not-array-destructuring"><span class="nav-number">2.6.</span> <span class="nav-text">2.6 Use object destructuring for multiple return values, not array destructuring</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-String"><span class="nav-number">3.</span> <span class="nav-text">3. String</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-Strings-that-cause-the-line-to-go-over-100-characters-should-not-be-written-across-multiple-lines-using-string-concatenation"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 Strings that cause the line to go over 100 characters should not be written across multiple lines using string concatenation.</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Functions"><span class="nav-number">4.</span> <span class="nav-text">4. Functions</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-Use-named-function-expressions-instead-of-function-declarations"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 Use named function expressions instead of function declarations</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-Note-ECMA-262-defines-a-block-as-a-list-of-statements-A-function-declaration-is-not-a-statement-Read-ECMA-262’s-note-on-this-issue"><span class="nav-number">4.2.</span> <span class="nav-text">4.2 Note: ECMA-262 defines a block as a list of statements. A function declaration is not a statement. Read ECMA-262’s note on this issue.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-Never-name-a-parameter-arguments-This-will-take-precedence-over-the-arguments-object-that-is-given-to-every-function-scope"><span class="nav-number">4.3.</span> <span class="nav-text">4.3 Never name a parameter arguments. This will take precedence over the arguments object that is given to every function scope.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4-Use-default-parameter-syntax-rather-than-mutating-function-arguments"><span class="nav-number">4.4.</span> <span class="nav-text">4.4  Use default parameter syntax rather than mutating function arguments.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-5-Avoid-side-effects-with-default-parameters"><span class="nav-number">4.5.</span> <span class="nav-text">4.5 Avoid side effects with default parameters.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-6-Always-put-default-parameters-last"><span class="nav-number">4.6.</span> <span class="nav-text">4.6 Always put default parameters last.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-7-Never-mutate-parameters-eslint-no-param-reassign"><span class="nav-number">4.7.</span> <span class="nav-text">4.7 Never mutate parameters. eslint: no-param-reassign</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-8-Prefer-the-use-of-the-spread-operator-…-to-call-variadic-functions-eslint-prefer-spread"><span class="nav-number">4.8.</span> <span class="nav-text">4.8 Prefer the use of the spread operator … to call variadic functions. eslint: prefer-spread</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-9-Functions-with-multiline-signatures-or-invocations-should-be-indented-just-like-every-other-multiline-list-in-this-guide-with-each-item-on-a-line-by-itself-with-a-trailing-comma-on-the-last-item"><span class="nav-number">4.9.</span> <span class="nav-text">4.9 Functions with multiline signatures, or invocations, should be indented just like every other multiline list in this guide: with each item on a line by itself, with a trailing comma on the last item.</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">TaylorPzreal</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    
+
+    
+      <!-- UY BEGIN -->
+      <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2132005"></script>
+      <!-- UY END -->
+    
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
