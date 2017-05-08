@@ -109,7 +109,7 @@
 <meta property="og:url" content="https://taylorpzreal.github.io/2017/05/08/code-reg/index.html">
 <meta property="og:site_name" content="TaylorPzreal">
 <meta property="og:description" content="2017 前端项目开发架构项目架构 HTML5 + JS(ES6+) + SASS JS框架 Angularjs@^1.6.4 HTML/CSS框架 Bootstrap@^3.x + admin-lte@^2.x + 移动优先 + 响应式开发(基于REM+Media Queries) 测试框架 自动化单元测试: Karma@^1.6.0 + Jasmine@^2.6.1 自动化端到端测试: Pro">
-<meta property="og:updated_time" content="2017-05-08T07:18:07.652Z">
+<meta property="og:updated_time" content="2017-05-08T07:20:22.780Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2017 前端开发规范">
 <meta name="twitter:description" content="2017 前端项目开发架构项目架构 HTML5 + JS(ES6+) + SASS JS框架 Angularjs@^1.6.4 HTML/CSS框架 Bootstrap@^3.x + admin-lte@^2.x + 移动优先 + 响应式开发(基于REM+Media Queries) 测试框架 自动化单元测试: Karma@^1.6.0 + Jasmine@^2.6.1 自动化端到端测试: Pro">
@@ -428,9 +428,16 @@
 <ol>
 <li>首先配置好openvpn</li>
 <li>以管理员权限开启openvpn(window系统, 右键以管理员权限运行)</li>
-<li><figure class="highlight plain"><figcaption><span>pull```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">4. 本地merge</div><div class="line">5. </div><div class="line">```git add *</div></pre></td></tr></table></figure>
+<li></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git pull</div></pre></td></tr></table></figure>
+<ol>
+<li>本地merge</li>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git add *</div></pre></td></tr></table></figure>
 </li>
-<li><figure class="highlight plain"><figcaption><span>commit -m "修改了X内容"```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">7. </div><div class="line">```git push</div></pre></td></tr></table></figure>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git commit -m &quot;修改了X内容&quot;</div></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push</div></pre></td></tr></table></figure>
 </li>
 </ol>
 <p>给项目打标签(Tag)</p>
@@ -476,8 +483,10 @@
 <li>相关配置完成后，需要下载本地代码库</li>
 </ol>
 <h2 id="五-自动化单元测试-Auto-Unit-Testing"><a href="#五-自动化单元测试-Auto-Unit-Testing" class="headerlink" title="五 自动化单元测试(Auto Unit Testing)"></a>五 自动化单元测试(Auto Unit Testing)</h2><ol>
-<li>全局安装karma[可选] <figure class="highlight plain"><figcaption><span>global add karma```</span><a href="/*">可以自动生成karma.conf.js配置文件, 有利于了解相关配置*/</a></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">2. 写测试文件,文件放在 ```test/unit/``` 下面, 结尾为 ```*.spec.js```, 本产品我们只测试 **controller** &amp; **service**</div><div class="line">3. ```yarn test``` 进行单元测试</div><div class="line">4. 执行 ```yarn test``` 会在项目根目录下面生成coverage文件,文件下面有一个```index.html```文件, 直接用浏览器打开该文件, 可以查看代码覆盖率相关指标.</div><div class="line"></div><div class="line">## 六 自动化端到端(集成)测试</div><div class="line">1. 在 ```test/e2e``` 下面新建 ```*.e2e-spec.js``` 文件, 并编写测试</div><div class="line">2. 启动本地服务 http://localhost:63342 </div><div class="line">3. 终端中执行 ```protractor</div></pre></td></tr></table></figure></li>
+<li>全局安装karma[可选] <figure class="highlight plain"><figcaption><span>global add karma```</span><a href="/*">可以自动生成karma.conf.js配置文件, 有利于了解相关配置*/</a></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">2. 写测试文件,文件放在 ```test/unit/``` 下面, 结尾为 ```*.spec.js```, 本产品我们只测试 **controller** &amp; **service**</div><div class="line">3. 进行单元测试</div></pre></td></tr></table></figure></li>
 </ol>
+<p>yarn test<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">4. 执行</div></pre></td></tr></table></figure></p>
+<p>yarn test<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">会在项目根目录下面生成coverage文件,文件下面有一个***index.html***文件, 直接用浏览器打开该文件, 可以查看代码覆盖率相关指标.</div><div class="line"></div><div class="line">## 六 自动化端到端(集成)测试</div><div class="line">1. 在 ```test/e2e``` 下面新建 ```*.e2e-spec.js``` 文件, 并编写测试</div><div class="line">2. 启动本地服务 http://localhost:63342 </div><div class="line">3. 终端中执行 ```protractor</div></pre></td></tr></table></figure></p>
 <h2 id="架构任务表-2017-05-03"><a href="#架构任务表-2017-05-03" class="headerlink" title="架构任务表 (2017-05-03)"></a>架构任务表 (2017-05-03)</h2><ul>
 <li>[x] update webpack config(sass config, font &amp; image config) 2017-05-04</li>
 <li>[x] add e2e-testing 2017-05-04</li>
