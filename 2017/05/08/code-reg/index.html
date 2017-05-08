@@ -109,7 +109,7 @@
 <meta property="og:url" content="https://taylorpzreal.github.io/2017/05/08/code-reg/index.html">
 <meta property="og:site_name" content="TaylorPzreal">
 <meta property="og:description" content="2017 前端项目开发架构项目架构 HTML5 + JS(ES6+) + SASS JS框架 Angularjs@^1.6.4 HTML/CSS框架 Bootstrap@^3.x + admin-lte@^2.x + 移动优先 + 响应式开发(基于REM+Media Queries) 测试框架 自动化单元测试: Karma@^1.6.0 + Jasmine@^2.6.1 自动化端到端测试: Pro">
-<meta property="og:updated_time" content="2017-05-08T07:27:34.755Z">
+<meta property="og:updated_time" content="2017-05-08T07:34:58.566Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2017 前端开发规范">
 <meta name="twitter:description" content="2017 前端项目开发架构项目架构 HTML5 + JS(ES6+) + SASS JS框架 Angularjs@^1.6.4 HTML/CSS框架 Bootstrap@^3.x + admin-lte@^2.x + 移动优先 + 响应式开发(基于REM+Media Queries) 测试框架 自动化单元测试: Karma@^1.6.0 + Jasmine@^2.6.1 自动化端到端测试: Pro">
@@ -454,17 +454,22 @@
 <li><a href="https://github.com/airbnb/javascript" target="_blank" rel="external">Airbnb Javascript</a></li>
 </ul>
 <h3 id="2-SCSS规范"><a href="#2-SCSS规范" class="headerlink" title="2. SCSS规范"></a>2. SCSS规范</h3><ul>
-<li>使用vscode插件 <a href="https://github.com/sasstools/sass-lint" target="_blank" rel="external">Sass Lint</a>, 本地配置文件 <a href="./.sass-lint.yml">.sass-lint.yml</a>, 格式化插件 <strong><em>Beautify</em></strong> 的配置文件 <a href="./.jsbeautifyrc">.jsbeautifyrc</a></li>
+<li>使用vscode插件 <a href="https://github.com/sasstools/sass-lint" target="_blank" rel="external">Sass Lint</a>, 本地配置文件 <a href="https://taylorpzreal.github.io/2017/05/08/sass-lint/">.sass-lint.yml</a>, 格式化插件 <strong><em>Beautify</em></strong> 的配置文件 <a href="./.jsbeautifyrc">.jsbeautifyrc</a></li>
 <li><a href="https://github.com/Zhangjd/css-style-guide#sass" target="_blank" rel="external">Airbnb Sass</a></li>
 </ul>
 <h3 id="3-HTML规范"><a href="#3-HTML规范" class="headerlink" title="3. HTML规范"></a>3. HTML规范</h3><ul>
-<li>使用vscode插件 <a href="https://github.com/yaniswang/HTMLHint" target="_blank" rel="external">HTMLHint</a>, 本地配置文件 <a href="./.htmlhintrc">.htmlhintrc</a></li>
+<li>使用vscode插件 <a href="https://github.com/yaniswang/HTMLHint" target="_blank" rel="external">HTMLHint</a>, 本地配置文件 <strong><em>htmlhintrc</em></strong><figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attr">"tagname-lowercase"</span>: <span class="literal">true</span>,</div><div class="line">    <span class="attr">"attr-lowercase"</span>: <span class="literal">true</span>,</div><div class="line">    <span class="attr">"attr-value-double-quotes"</span>: <span class="literal">true</span>,</div><div class="line">    <span class="attr">"doctype-first"</span>: <span class="literal">false</span>,</div><div class="line">    <span class="attr">"tag-pair"</span>: <span class="literal">true</span>,</div><div class="line">    <span class="attr">"spec-char-escape"</span>: <span class="literal">true</span>,</div><div class="line">    <span class="attr">"id-unique"</span>: <span class="literal">true</span>,</div><div class="line">    <span class="attr">"src-not-empty"</span>: <span class="literal">true</span>,</div><div class="line">    <span class="attr">"attr-no-duplication"</span>: <span class="literal">true</span>,</div><div class="line">    <span class="attr">"title-require"</span>: <span class="literal">true</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
 </ul>
 <h3 id="4-命名规范"><a href="#4-命名规范" class="headerlink" title="4. 命名规范"></a>4. 命名规范</h3><ul>
 <li>功能模块名-描述.模块.[ext], 比如 <strong>ent-search.ctrl.js</strong>, <strong>ent.service.js</strong>, <strong>common.dom.js</strong></li>
 </ul>
 <h3 id="5-格式化代码规范"><a href="#5-格式化代码规范" class="headerlink" title="5. 格式化代码规范"></a>5. 格式化代码规范</h3><ul>
-<li>使用 vscode <a href="https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify#review-details" target="_blank" rel="external">Beautify</a> 插件进行代码格式化, 配置文件 <a href="./.jsbeautifyrc">.jsbeautifyrc</a>, <a href="https://github.com/beautify-web/js-beautify" target="_blank" rel="external">更多信息</a></li>
+<li>使用 vscode <a href="https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify#review-details" target="_blank" rel="external">Beautify</a> 插件进行代码格式化, 配置文件 <strong><em>.jsbeautifyrc</em></strong><figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	<span class="attr">"indent_size"</span>: <span class="number">2</span>,</div><div class="line">	<span class="attr">"max_preserve_newlines"</span>: <span class="number">3</span>,</div><div class="line">	<span class="attr">"preserve_newlines"</span>: <span class="literal">true</span>,</div><div class="line"></div><div class="line">	<span class="attr">"js"</span>: &#123;</div><div class="line">		<span class="attr">"end_with_newline"</span>: <span class="literal">true</span>,</div><div class="line">		<span class="attr">"indent_with_tabs"</span>: <span class="literal">true</span></div><div class="line">	&#125;,</div><div class="line"></div><div class="line">	<span class="attr">"css"</span>: &#123;</div><div class="line">		<span class="attr">"newline_between_rules"</span>: <span class="literal">true</span>,</div><div class="line">		<span class="attr">"end_with_newline"</span>: <span class="literal">true</span>,</div><div class="line">		<span class="attr">"selector_separator_newline"</span>: <span class="literal">true</span></div><div class="line">	&#125;,</div><div class="line"></div><div class="line">  <span class="attr">"html"</span>: &#123;</div><div class="line">    </div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>, <a href="https://github.com/beautify-web/js-beautify" target="_blank" rel="external">更多信息</a></p>
+<ul>
 <li>缩进都控制 2字节</li>
 <li>文件内容末尾需要添加一个空行</li>
 <li>最大只允许3个空行</li>
