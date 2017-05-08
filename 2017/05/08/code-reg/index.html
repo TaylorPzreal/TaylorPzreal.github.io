@@ -109,7 +109,7 @@
 <meta property="og:url" content="https://taylorpzreal.github.io/2017/05/08/code-reg/index.html">
 <meta property="og:site_name" content="TaylorPzreal">
 <meta property="og:description" content="2017 前端项目开发架构项目架构 HTML5 + JS(ES6+) + SASS JS框架 Angularjs@^1.6.4 HTML/CSS框架 Bootstrap@^3.x + admin-lte@^2.x + 移动优先 + 响应式开发(基于REM+Media Queries) 测试框架 自动化单元测试: Karma@^1.6.0 + Jasmine@^2.6.1 自动化端到端测试: Pro">
-<meta property="og:updated_time" content="2017-05-08T07:34:58.566Z">
+<meta property="og:updated_time" content="2017-05-08T07:39:08.807Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2017 前端开发规范">
 <meta name="twitter:description" content="2017 前端项目开发架构项目架构 HTML5 + JS(ES6+) + SASS JS框架 Angularjs@^1.6.4 HTML/CSS框架 Bootstrap@^3.x + admin-lte@^2.x + 移动优先 + 响应式开发(基于REM+Media Queries) 测试框架 自动化单元测试: Karma@^1.6.0 + Jasmine@^2.6.1 自动化端到端测试: Pro">
@@ -454,7 +454,7 @@
 <li><a href="https://github.com/airbnb/javascript" target="_blank" rel="external">Airbnb Javascript</a></li>
 </ul>
 <h3 id="2-SCSS规范"><a href="#2-SCSS规范" class="headerlink" title="2. SCSS规范"></a>2. SCSS规范</h3><ul>
-<li>使用vscode插件 <a href="https://github.com/sasstools/sass-lint" target="_blank" rel="external">Sass Lint</a>, 本地配置文件 <a href="https://taylorpzreal.github.io/2017/05/08/sass-lint/">.sass-lint.yml</a>, 格式化插件 <strong><em>Beautify</em></strong> 的配置文件 <a href="./.jsbeautifyrc">.jsbeautifyrc</a></li>
+<li>使用vscode插件 <a href="https://github.com/sasstools/sass-lint" target="_blank" rel="external">Sass Lint</a>, 本地配置文件 <a href="https://taylorpzreal.github.io/2017/05/08/sass-lint/">.sass-lint.yml</a>, 格式化插件 <strong><em>Beautify</em></strong> 的配置文件 .jsbeautifyrc</li>
 <li><a href="https://github.com/Zhangjd/css-style-guide#sass" target="_blank" rel="external">Airbnb Sass</a></li>
 </ul>
 <h3 id="3-HTML规范"><a href="#3-HTML规范" class="headerlink" title="3. HTML规范"></a>3. HTML规范</h3><ul>
@@ -495,10 +495,11 @@
 <h2 id="五-自动化单元测试-Auto-Unit-Testing"><a href="#五-自动化单元测试-Auto-Unit-Testing" class="headerlink" title="五 自动化单元测试(Auto Unit Testing)"></a>五 自动化单元测试(Auto Unit Testing)</h2><ol>
 <li>全局安装karma[可选] <strong><em>yarn global add karma</em></strong> /<em> 可以自动生成karma.conf.js配置文件, 有利于了解相关配置</em>/</li>
 <li>写测试文件,文件放在 <strong><em>test/unit/</em></strong> 下面, 结尾为 <strong><em> </em>.spec.js*</strong>, 本产品我们只测试 <strong>controller</strong> &amp; <strong>service</strong></li>
-<li>进行单元测试<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">yarn test</div><div class="line">``` </div><div class="line">4. 执行</div></pre></td></tr></table></figure>
-</li>
+<li>进行单元测试</li>
 </ol>
-<p>yarn test<br>```<br>会在项目根目录下面生成coverage文件,文件下面有一个<strong><em>index.html</em></strong>文件, 直接用浏览器打开该文件, 可以查看代码覆盖率相关指标.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">yarn test</div><div class="line">``` </div><div class="line"></div><div class="line">4. 执行</div></pre></td></tr></table></figure>
+<p>yarn test<br>``` </p>
+<p>会在项目根目录下面生成coverage文件,文件下面有一个<strong><em>index.html</em></strong>文件, 直接用浏览器打开该文件, 可以查看代码覆盖率相关指标.</p>
 <h2 id="六-自动化端到端-集成-测试"><a href="#六-自动化端到端-集成-测试" class="headerlink" title="六 自动化端到端(集成)测试"></a>六 自动化端到端(集成)测试</h2><ol>
 <li>在 <strong><em>test/e2e</em></strong> 下面新建 <strong><em> </em>.e2e-spec.js*</strong> 文件, 并编写测试</li>
 <li>启动本地服务 <a href="http://localhost:63342" target="_blank" rel="external">http://localhost:63342</a> </li>
