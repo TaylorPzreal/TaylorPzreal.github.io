@@ -1,4 +1,4 @@
-# Github Pages Blog
+# TaylorPzreal's Blog
 
 ## Development
 
