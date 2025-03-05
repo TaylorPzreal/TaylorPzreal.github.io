@@ -19,6 +19,13 @@ pelican content
 pelican --listen
 ```
 
+导出依赖
+
+```sh
+pip freeze > requirements.txt
+```
+
+
 ## Create an article
 
 文章模板示例
