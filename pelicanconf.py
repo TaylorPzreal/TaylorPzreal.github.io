@@ -18,6 +18,7 @@ AUTHOR_FEED_RSS = None
 # Blogroll
 LINKS = (
     ("Github", "https://github.com/TaylorPzreal"),
+    ("Pelican", "https://getpelican.com/")
 )
 
 # Social widget
@@ -25,7 +26,11 @@ LINKS = (
 #     ("You can add links in your config file", "#"),
 # )
 
-DEFAULT_PAGINATION = 10
+DEFAULT_PAGINATION = 5
 
 # Uncomment following line if you want document-relative URLs when developing
 # RELATIVE_URLS = True
+
+# COPYRIGHT_YEAR=2025
+# TRADEMARK = '你的商标'
+# FOOTER_CONTENT = f'© {COPYRIGHT_YEAR} {AUTHOR} | {TRADEMARK} 保留所有权利。'
