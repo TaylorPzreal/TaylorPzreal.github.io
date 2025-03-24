@@ -18,6 +18,7 @@ AUTHOR_FEED_RSS = None
 
 # Blogroll
 LINKS = (("Github", "https://github.com/TaylorPzreal"),
+         ("Knowledge", "https://taylorpzreal.github.io/knowledge/"),
          ("Pelican", "https://getpelican.com/"))
 
 # Social widget
