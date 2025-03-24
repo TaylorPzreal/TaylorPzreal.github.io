@@ -5,9 +5,9 @@ TIMEZONE = 'CET'
 DEFAULT_LANG = 'en'
 
 PATH = "content"
-ARTICLE_PATHS = "blogs"
-STATIC_PATHS = ['images', "blogs"]
-PAGE_PATHS = "pages"
+# ARTICLE_PATHS = "blogs"
+STATIC_PATHS = ['images']
+# PAGE_PATHS = "pages"
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None

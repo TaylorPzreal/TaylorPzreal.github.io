@@ -42,7 +42,7 @@ jobs:
       - name: Build site
         run: pelican content -t templates/notmyidea
       - name: list output
-        run: ls -la
+        run: ls -la output
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
