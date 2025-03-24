@@ -38,7 +38,7 @@ jobs:
         with:
           python-version: "3.12"
       - name: Install pelican
-        run: pip install -r requirements.txt"
+        run: pip install -r requirements.txt
       - name: Build site
         run: pelican content -t templates/notmyidea
       - name: list output
